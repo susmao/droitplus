@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b1323">
+<title>Droit+ – Révise le droit (Burkina & OHADA) | Application Android</title>
+<meta name="description" content="Droit+ : fiches de révision, exercices corrigés, QCM et guides méthodologiques pour la Licence en droit, Burkina Faso & OHADA. 28 matières en L3. Application Android à télécharger.">
+<meta property="og:title" content="Droit+ – Révise le droit (Burkina & OHADA)">
+<meta property="og:description" content="Fiches, exercices corrigés, QCM et méthodes pour réussir sa Licence en droit. Application Android.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<!-- Pour un bel aperçu sur WhatsApp/Facebook, remplace par l'adresse complète : https://TON-PSEUDO.github.io/TON-DEPOT/assets/img/og-image.jpg -->
+<meta property="og:image" content="assets/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<style>
+  :root{
+    --bg:#0b1323;
+    --bg-2:#0f1a2e;
+    --card:#152238;
+    --card-2:#1b2b45;
+    --ink:#f8fafc;
+    --ink-soft:#a5b4c8;
+    --ink-mute:#7c8ba1;
+    --gold:#f6a609;
+    --gold-2:#fbbf24;
+    --blue:#0ea5e9;
+    --orange:#c2410c;
+    --green:#10b981;
+    --border:#25365a;
+    --radius:18px;
+    --max:1140px;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  .gold{color:var(--gold-2)}
+  :focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:6px}
+
+  /* ---------- Barre du haut ---------- */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(11,19,35,.86);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--border)}
+  .topbar .wrap{display:flex;align-items:center;gap:16px;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+  .brand img{width:40px;height:40px;border-radius:10px}
+  .brand b{font-size:1.15rem;letter-spacing:-.2px;display:block;line-height:1.1}
+  .brand small{display:block;color:var(--ink-mute);font-size:.72rem;line-height:1.2}
+  .nav{display:flex;gap:4px;margin-left:auto}
+  .nav a{padding:8px 12px;border-radius:10px;color:var(--ink-soft);font-size:.92rem;font-weight:500}
+  .nav a:hover{color:var(--ink);background:var(--card)}
+  .btn-sm{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#111;font-weight:700;font-size:.9rem;padding:9px 16px;border-radius:10px;white-space:nowrap}
+  .btn-sm:hover{background:var(--gold-2)}
+  .btn-sm svg{width:16px;height:16px}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;padding:64px 0 72px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:-200px -200px auto auto;width:700px;height:700px;background:radial-gradient(circle,rgba(246,166,9,.13) 0%,transparent 62%);pointer-events:none}
+  .hero::after{content:"";position:absolute;left:-250px;bottom:-250px;width:600px;height:600px;background:radial-gradient(circle,rgba(14,165,233,.10) 0%,transparent 62%);pointer-events:none}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(246,166,9,.1);color:var(--gold-2);border:1px solid rgba(246,166,9,.28);padding:6px 14px;border-radius:999px;font-size:.8rem;font-weight:600;margin-bottom:22px}
+  .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(16,185,129,.25)}
+  h1{font-size:clamp(2.1rem,5vw,3.5rem);font-weight:800;line-height:1.1;margin:0 0 20px;letter-spacing:-1px}
+  .lead{font-size:clamp(1rem,1.6vw,1.15rem);color:var(--ink-soft);margin:0 0 32px;max-width:52ch}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:#111;font-weight:800;padding:16px 28px;border-radius:14px;font-size:1.05rem;box-shadow:0 8px 24px rgba(246,166,9,.28);transition:transform .15s ease,background .15s ease}
+  .btn:hover{background:var(--gold-2);transform:translateY(-2px)}
+  .btn svg{width:22px;height:22px}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:15px 22px;border-radius:14px;border:1px solid var(--border);color:var(--ink);font-weight:600;background:rgba(21,34,56,.5)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-2)}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-size:.86rem;color:var(--ink-soft)}
+  .meta span{display:inline-flex;align-items:center;gap:6px}
+  .meta svg{width:16px;height:16px;color:var(--gold-2)}
+
+  .phones{position:relative;height:560px}
+  .phone{position:absolute;width:260px;border-radius:34px;border:8px solid #1e293b;background:#000;overflow:hidden;box-shadow:0 30px 60px -15px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.06)}
+  .phone img{width:100%;height:auto}
+  .phone.front{right:60px;top:0;z-index:2}
+  .phone.back{right:250px;top:60px;transform:rotate(-7deg);opacity:.9;width:230px}
+
+  /* ---------- Chiffres ---------- */
+  .stats{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-2)}
+  .stats .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+  .stat{padding:26px 12px;text-align:center;border-right:1px solid var(--border)}
+  .stat:last-child{border-right:0}
+  .stat b{display:block;font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:var(--gold-2);line-height:1.1}
+  .stat span{display:block;margin-top:6px;color:var(--ink-soft);font-size:.86rem}
+
+  /* ---------- Sections ---------- */
+  section.block{padding:88px 0}
+  section.alt{background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .head{margin-bottom:40px;max-width:720px}
+  .kicker{display:inline-block;color:var(--gold-2);font-weight:700;font-size:.8rem;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px}
+  h2{font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:800;margin:0 0 12px;letter-spacing:-.5px;line-height:1.2}
+  .head p{color:var(--ink-soft);font-size:1.05rem;margin:0}
+
+  /* Cartes fonctionnalités */
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:border-color .2s,transform .2s,background .2s}
+  .card:hover{border-color:rgba(246,166,9,.6);transform:translateY(-3px);background:var(--card-2)}
+  .ico{width:46px;height:46px;border-radius:12px;background:rgba(246,166,9,.12);color:var(--gold-2);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .ico svg{width:24px;height:24px}
+  .card h3{font-size:1.08rem;margin:0 0 8px;font-weight:700}
+  .card p{color:var(--ink-soft);font-size:.93rem;margin:0}
+
+  /* Programme L3 */
+  .tracks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .track{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden}
+  .track::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--c)}
+  .track .tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--c);border:1px solid var(--c);padding:3px 10px;border-radius:8px;margin-bottom:14px}
+  .track .num{font-size:2.4rem;font-weight:800;line-height:1}
+  .track .num small{font-size:1rem;color:var(--ink-soft);font-weight:600;margin-left:6px}
+  .track ul{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-direction:column;gap:10px}
+  .track li{font-size:.93rem;padding-left:18px;position:relative}
+  .track li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:2px;background:var(--c)}
+  .track li em{display:block;font-style:normal;font-family:var(--mono);font-size:.78rem;color:var(--gold-2);margin-top:2px}
+  .track li.more{color:var(--ink-mute)}
+  .track li.more::before{background:var(--border)}
+  .levels{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:var(--ink-soft);font-size:.93rem}
+  .lvl{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:10px;border:1px solid var(--border);font-weight:700;font-size:.85rem}
+  .lvl.on{background:var(--gold);color:#111;border-color:var(--gold)}
+  .lvl.soon{color:var(--ink-mute)}
+
+  /* Galerie */
+  .gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+  .shot{margin:0}
+  .shot .frame{border-radius:26px;border:6px solid #1e293b;overflow:hidden;background:#000;box-shadow:0 20px 40px -15px rgba(0,0,0,.7)}
+  .shot img{width:100%;height:auto}
+  .shot figcaption{margin-top:12px;text-align:center;font-size:.88rem;color:var(--ink-soft)}
+  .swipe{display:none;color:var(--ink-mute);font-size:.85rem;margin:-24px 0 18px}
+  .shot figcaption b{display:block;color:var(--ink);font-size:.95rem}
+
+  /* Abonnement */
+  .plans{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+  .plan{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center}
+  .plan.best{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
+  .plan b{display:block;font-size:2rem;font-weight:800}
+  .plan span{color:var(--ink-soft);font-size:.92rem}
+  .plan .badge{display:inline-block;margin-bottom:10px;background:var(--gold);color:#111;font-size:.72rem;font-weight:800;padding:3px 10px;border-radius:999px;letter-spacing:.4px}
+  .pay{margin-top:22px;display:flex;flex-wrap:wrap;gap:14px 28px;color:var(--ink-soft);font-size:.95rem}
+  .pay div{display:flex;gap:10px;align-items:flex-start;flex:1 1 280px}
+  .pay svg{width:20px;height:20px;color:var(--gold-2);flex-shrink:0;margin-top:2px}
+  .pay b{color:var(--ink)}
+
+  /* Installation */
+  .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start}
+  .steps{list-style:none;padding:0;margin:0;counter-reset:s}
+  .steps li{position:relative;padding:4px 0 28px 56px;counter-increment:s}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:38px;height:38px;border-radius:50%;background:var(--card);border:2px solid var(--gold);color:var(--gold-2);font-weight:800;display:flex;align-items:center;justify-content:center}
+  .steps li::after{content:"";position:absolute;left:18px;top:42px;bottom:4px;width:2px;background:var(--border)}
+  .steps li:last-child{padding-bottom:0}
+  .steps li:last-child::after{display:none}
+  .steps b{color:var(--ink)}
+  .steps p{margin:0;color:var(--ink-soft)}
+  .note{background:rgba(246,166,9,.06);border:1px solid rgba(246,166,9,.28);border-radius:var(--radius);padding:24px}
+  .note h3{color:var(--gold-2);font-size:1.05rem;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  .note h3 svg{width:20px;height:20px}
+  .note p{font-size:.95rem;color:var(--ink-soft);margin:0 0 12px}
+  .note p:last-child{margin-bottom:0}
+  .note b{color:var(--ink)}
+
+  /* Empreinte */
+  .hash-box{margin-top:28px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+  .hash-box h3{margin:0 0 6px;font-size:1rem;display:flex;align-items:center;gap:8px}
+  .hash-box h3 svg{width:18px;height:18px;color:var(--gold-2)}
+  .hash-box p{margin:0 0 14px;font-size:.9rem;color:var(--ink-soft)}
+  .hash-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .hash-row code{flex:1 1 280px;font-family:var(--mono);font-size:.82rem;color:var(--gold-2);word-break:break-all;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px}
+  .copy-btn{background:var(--bg);border:1px solid var(--border);color:var(--ink);padding:11px 18px;border-radius:10px;font:600 .9rem var(--sans);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+  .copy-btn:hover{border-color:var(--gold);color:var(--gold-2)}
+  .copy-btn.copied{background:var(--gold);color:#111;border-color:var(--gold)}
+  .copy-btn svg{width:16px;height:16px}
+
+  /* FAQ */
+  .faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  details{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:0 20px}
+  details[open]{border-color:rgba(246,166,9,.5)}
+  summary{cursor:pointer;list-style:none;padding:18px 28px 18px 0;font-weight:700;position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";position:absolute;right:0;top:14px;font-size:1.4rem;color:var(--gold-2);font-weight:400}
+  details[open] summary::after{content:"–"}
+  details p{margin:0 0 18px;color:var(--ink-soft);font-size:.95rem}
+
+  /* Appel final */
+  .final{text-align:center;padding:80px 0}
+  .final img{width:96px;height:96px;border-radius:22px;margin:0 auto 22px;box-shadow:0 14px 30px rgba(0,0,0,.45)}
+  .final p{color:var(--ink-soft);max-width:46ch;margin:0 auto 28px}
+
+  footer{padding:28px 0 calc(28px + env(safe-area-inset-bottom));text-align:center;color:var(--ink-mute);font-size:.86rem;border-top:1px solid var(--border);background:var(--bg-2)}
+  footer p{margin:4px 0}
+
+  /* ---------- Tablette ---------- */
+  @media (max-width:1000px){
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .gallery{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:42%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;margin:0 -20px;padding-left:20px;padding-right:20px;scrollbar-width:thin}
+    .shot{scroll-snap-align:center}
+    .swipe{display:block}
+    .phone.back{right:200px}
+  }
+  /* ---------- Téléphone ---------- */
+  @media (max-width:860px){
+    .nav{display:none}
+    .topbar .btn-sm{margin-left:auto}
+    .hero{padding:40px 0 56px;text-align:center}
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .lead{margin-left:auto;margin-right:auto}
+    .cta-row,.meta{justify-content:center}
+    .phones{height:auto;display:flex;justify-content:center}
+    .phone{position:relative;right:auto;top:auto}
+    .phone.front{width:min(250px,68vw)}
+    .phone.back{display:none}
+    .stats .wrap{grid-template-columns:repeat(2,1fr)}
+    .stat{border-right:0;border-bottom:1px solid var(--border)}
+    .stat:nth-child(odd){border-right:1px solid var(--border)}
+    .stat:last-child{grid-column:1 / -1;border-right:0;border-bottom:0}
+    section.block{padding:64px 0}
+    .tracks,.plans,.cols,.faq{grid-template-columns:1fr}
+    .gallery{grid-auto-columns:64%}
+  }
+  @media (max-width:520px){
+    .brand small,.hide-sm{display:none}
+    .cards{grid-template-columns:1fr}
+    .btn{width:100%}
+    .btn-ghost{width:100%;justify-content:center}
+    .card{padding:20px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Droit+, retour en haut">
+      <img src="assets/img/logo-192.png" alt="" width="40" height="40">
+      <span><b>Droit+</b><small>Droit · Burkina &amp; OHADA</small></span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#fonctionnalites">Fonctionnalités</a>
+      <a href="#programme">Programme</a>
+      <a href="#apercu">Aperçu</a>
+      <a href="#abonnement">Abonnement</a>
+      <a href="#installer">Installer</a>
+    </nav>
+    <a class="btn-sm" href="Droit-Plus.apk" download="Droit-Plus.apk">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+      Télécharger
+    </a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="pill"><span class="dot"></span>Application Android<span class="hide-sm"> · Licence en droit</span> · L3 disponible</div>
+        <h1>Réussis tes <span class="gold">exercices de droit</span>, matière par matière.</h1>
+        <p class="lead">Fiches de révision, exercices corrigés, QCM et guides méthodologiques pour la dissertation, le cas pratique et les commentaires. Pensé pour le droit burkinabè et OHADA.</p>
+        <div class="cta-row">
+          <a class="btn" href="Droit-Plus.apk" download="Droit-Plus.apk">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+            Télécharger l’application
+          </a>
+          <a class="btn-ghost" href="#apercu">Voir les écrans</a>
+        </div>
+        <div class="meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>Android 7.0 ou plus</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>3,3 Mo</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 7h-9M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>Version 1.0</span>
+        </div>
+      </div>
+      <div class="phones" aria-hidden="true">
+        <div class="phone back"><img src="assets/img/ecran-qcm.jpg" alt="" width="571" height="1156"></div>
+        <div class="phone front"><img src="assets/img/ecran-tronc-commun.jpg" alt="" width="571" height="1156" fetchpriority="high"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CHIFFRES ===== -->
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat"><b>28</b><span>matières en L3</span></div>
+      <div class="stat"><b>3</b><span>filières</span></div>
+      <div class="stat"><b>S5 · S6</b><span>semestres couverts</span></div>
+      <div class="stat"><b>4</b><span>types d’exercices</span></div>
+      <div class="stat"><b>150</b><span>QCM max. par matière</span></div>
+    </div>
+  </div>
+
+  <!-- ===== FONCTIONNALITÉS ===== -->
+  <section class="block" id="fonctionnalites">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">Dans l’application</span>
+        <h2>Tout pour préparer tes TD et tes examens</h2>
+        <p>Chaque matière a sa fiche, ses exercices corrigés et ses QCM. Tu révises au même endroit, à ton rythme.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+          <h3>Fiches de révision</h3>
+          <p>Le cours résumé séquence par séquence, avec ses textes de référence (Code du travail, AUDCG, RAF…).</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></svg></div>
+          <h3>Exercices corrigés</h3>
+          <p>Dissertation, cas pratique, commentaire de décision et commentaire de texte, dans chaque matière.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>Arène QCM</h3>
+          <p>Mode <b>Entraînement libre</b> ou <b>Examen chronométré</b>, avec ton score affiché en direct.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
+          <h3>Guides méthodologiques</h3>
+          <p>Les règles de forme et de fond attendues à l’examen, étape par étape, pour les 4 exercices.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+          <h3>Recherche et filtres</h3>
+          <p>Cherche par titre ou par code de loi, filtre par filière et par semestre, garde tes favoris.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l9 4.5v11L12 22l-9-4.5v-11z"/><path d="M12 22V12M21 6.5l-9 5.5-9-5.5"/></svg></div>
+          <h3>Mon espace</h3>
+          <p>Range tes propres cours : PDF, Word, PowerPoint, Excel, photos de cours et notes. Crée un PDF à partir de tes photos.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></div>
+          <h3>Lecture à voix haute</h3>
+          <p>Fais-toi lire tes fiches par la synthèse vocale du téléphone, pour réviser en marchant ou dans le bus.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.6a10 10 0 0 1 14 0M8.5 16.4a5 5 0 0 1 7 0"/><path d="M3 3l18 18"/></svg></div>
+          <h3>Cours dans l’appli</h3>
+          <p>Les cours sont intégrés à l’application : une fois ton accès activé, tu révises même avec peu de connexion.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROGRAMME ===== -->
+  <section class="block alt" id="programme">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">Programme L3</span>
+        <h2>28 matières, trois filières</h2>
+        <p>Semestres 5 et 6, organisés comme ta Licence : tronc commun, droit privé et droit public.</p>
+      </div>
+      <div class="tracks">
+        <article class="track" style="--c:var(--blue)">
+          <span class="tag">Tronc commun</span>
+          <div class="num">6<small>matières</small></div>
+          <ul>
+            <li>Droit du travail et de la sécurité sociale<em>§ Code du travail 2008</em></li>
+            <li>Droit foncier<em>§ RAF 2025 (loi n°015-2025/ALT)</em></li>
+            <li class="more">et 4 autres matières</li>
+          </ul>
+        </article>
+        <article class="track" style="--c:#ea580c">
+          <span class="tag">Droit privé</span>
+          <div class="num">10<small>matières</small></div>
+          <ul>
+            <li>Droit commercial général<em>§ AUDCG révisé (Lomé, 15 déc. 2010)</em></li>
+            <li>Droit des biens<em>§ C. civ. art. 516 s., 544 s., 2279</em></li>
+            <li class="more">et 8 autres matières</li>
+          </ul>
+        </article>
+        <article class="track" style="--c:var(--green)">
+          <span class="tag">Droit public</span>
+          <div class="num">12<small>matières</small></div>
+          <ul>
+            <li>Contentieux administratif<em>§ Loi n° 15-2000/AN</em></li>
+            <li>Droit international économique<em>§ Accords de Marrakech (1994), GATT 1994</em></li>
+            <li class="more">et 10 autres matières</li>
+          </ul>
+        </article>
+      </div>
+      <div class="levels">
+        Niveaux :
+        <span class="lvl soon">L1 · bientôt</span>
+        <span class="lvl soon">L2 · bientôt</span>
+        <span class="lvl on">L3 · disponible</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APERÇU ===== -->
+  <section class="block" id="apercu">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">Aperçu</span>
+        <h2>Une interface pensée pour le téléphone</h2>
+        <p>Des écrans clairs, en mode sombre, pour réviser longtemps sans te fatiguer les yeux.</p>
+      </div>
+      <p class="swipe">Fais glisser pour voir les autres écrans →</p>
+      <div class="gallery">
+        <figure class="shot"><div class="frame"><img src="assets/img/ecran-tronc-commun.jpg" alt="Liste des matières du tronc commun en L3" width="571" height="1156" loading="lazy"></div><figcaption><b>Cours</b>Tronc commun</figcaption></figure>
+        <figure class="shot"><div class="frame"><img src="assets/img/ecran-droit-prive.jpg" alt="Liste des matières de droit privé en L3" width="571" height="1156" loading="lazy"></div><figcaption><b>Cours</b>Droit privé</figcaption></figure>
+        <figure class="shot"><div class="frame"><img src="assets/img/ecran-droit-public.jpg" alt="Liste des matières de droit public en L3" width="571" height="1156" loading="lazy"></div><figcaption><b>Cours</b>Droit public</figcaption></figure>
+        <figure class="shot"><div class="frame"><img src="assets/img/ecran-methode.jpg" alt="Guide méthodologique de la dissertation juridique" width="571" height="1156" loading="lazy"></div><figcaption><b>Méthode</b>Dissertation, cas pratique…</figcaption></figure>
+        <figure class="shot"><div class="frame"><img src="assets/img/ecran-qcm.jpg" alt="Arène QCM en mode entraînement libre" width="571" height="1156" loading="lazy"></div><figcaption><b>QCM</b>Entraînement et examen blanc</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABONNEMENT ===== -->
+  <section class="block alt" id="abonnement">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">Accès</span>
+        <h2>Un abonnement simple, payé avec Orange Money</h2>
+        <p>Choisis ta durée et ton niveau directement dans l’application. Le prix s’affiche au moment du choix.</p>
+      </div>
+      <div class="plans">
+        <div class="plan"><b>1 mois</b><span>Idéal avant un examen</span></div>
+        <div class="plan"><b>2 mois</b><span>Pour une période de TD</span></div>
+        <div class="plan best"><span class="badge">L’ANNÉE ENTIÈRE</span><b>12 mois</b><span>Toute l’année universitaire</span></div>
+      </div>
+      <div class="pay">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg><span><b>Paiement dans l’appli</b> avec Orange Money, confirmé avec ton code secret.</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg><span><b>Accès immédiat</b> aux ressources de ton niveau dès que le paiement est validé.</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span><b>Un souci ?</b> Contacte le support sur WhatsApp depuis l’application.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INSTALLATION ===== -->
+  <section class="block" id="installer">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">Installation</span>
+        <h2>Installer Droit+ sur ton téléphone</h2>
+        <p>Quatre étapes, deux minutes.</p>
+      </div>
+      <div class="cols">
+        <ol class="steps">
+          <li><p>Appuie sur <b>Télécharger l’application</b> sur cette page.</p></li>
+          <li><p>Ouvre le fichier <b>Droit-Plus.apk</b> depuis les notifications ou le dossier <b>Téléchargements</b>.</p></li>
+          <li><p>Si Android le demande, autorise ton navigateur à <b>installer des applications inconnues</b>, puis reviens en arrière.</p></li>
+          <li><p>Appuie sur <b>Installer</b>, puis sur <b>Ouvrir</b>. Choisis ton niveau et ton abonnement.</p></li>
+        </ol>
+        <div>
+          <aside class="note">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>Pourquoi pas sur le Play Store ?</h3>
+            <p>Droit+ est distribuée directement, sans passer par le Play Store. Android affiche donc un message d’alerte à l’installation (« source inconnue » ou « application non reconnue »). <b>C’est normal.</b></p>
+            <p><b>Cette page est la source officielle de Droit+.</b> Ne l’installe jamais depuis un autre site ou un fichier reçu par message.</p>
+          </aside>
+          <div class="hash-box">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Vérifier le fichier (facultatif)</h3>
+            <p>Empreinte SHA-256 de l’APK officiel (version 1.0). Si celle de ton fichier est différente, ne l’installe pas.</p>
+            <div class="hash-row">
+              <code id="hash">7c803fee1506275af6d96852f6626d2cd905929dfc42b843a470928ff7c5b82e</code>
+              <button type="button" id="copy" class="copy-btn" aria-live="polite">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                <span id="copy-label">Copier</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="block alt" id="faq">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">Questions fréquentes</span>
+        <h2>Bon à savoir</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Ça marche sur iPhone ?</summary><p>Non. Droit+ est une application Android uniquement, compatible avec Android 7.0 et les versions plus récentes.</p></details>
+        <details><summary>Faut-il Internet pour réviser ?</summary><p>Internet sert à payer et activer ton abonnement. Les cours, exercices et QCM sont intégrés à l’application.</p></details>
+        <details><summary>Quels niveaux sont disponibles ?</summary><p>La L3 (semestres 5 et 6) est disponible. La L1 et la L2 arrivent bientôt.</p></details>
+        <details><summary>Comment mettre à jour l’application ?</summary><p>Reviens sur cette page, télécharge la nouvelle version et installe-la par-dessus l’ancienne, sans la désinstaller.</p></details>
+        <details><summary>Android bloque l’installation, que faire ?</summary><p>Va dans les paramètres proposés par Android, active « Autoriser cette source » pour ton navigateur ou ton gestionnaire de fichiers, puis relance l’installation.</p></details>
+        <details><summary>Droit+ remplace-t-il le cours ?</summary><p>Non. C’est un outil de révision et d’entraînement : il complète le cours de tes enseignants et ne constitue pas un avis juridique.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APPEL FINAL ===== -->
+  <section class="final">
+    <div class="wrap">
+      <img src="assets/img/logo-256.webp" alt="Logo Droit+" width="96" height="96" loading="lazy">
+      <h2>Prêt pour tes examens ?</h2>
+      <p>Télécharge Droit+ et commence à réviser dès aujourd’hui.</p>
+      <a class="btn" href="Droit-Plus.apk" download="Droit-Plus.apk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+        Télécharger Droit+ (3,3 Mo)
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b style="color:var(--ink)">Droit+</b> · Droit · Burkina &amp; OHADA · © <span id="year">2026</span></p>
+    <p>Droit+ est un outil d’apprentissage. Il ne remplace ni un cours ni un avis juridique.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+  var btn=document.getElementById('copy'), label=document.getElementById('copy-label'), hash=document.getElementById('hash');
+  if(!btn) return;
+  function done(){btn.classList.add('copied');label.textContent='Copié !';setTimeout(function(){btn.classList.remove('copied');label.textContent='Copier';},1800);}
+  function fallback(text){
+    var ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');done();}catch(e){label.textContent='Échec';}
+    document.body.removeChild(ta);
+  }
+  btn.addEventListener('click',function(){
+    var text=hash.textContent.trim();
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text);});}
+    else{fallback(text);}
+  });
+})();
+</script>
+</body>
+</html>
